@@ -10,13 +10,16 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Test & QA (PyBuilder)') {
             steps {
                 echo "Iniciando auditoria de calidad con PyBuilder..."
                 sh 'pip3 install pybuilder --break-system-packages'
-                sh 'python3 -m pybuilder'
+                // Disparamos pyb usando su ruta absoluta exacta
+                sh '/var/jenkins_home/.local/bin/pyb'
             }
         }
+        
         stage('Build Image') {
             steps {
                 echo "Construyendo imagen de Docker..."

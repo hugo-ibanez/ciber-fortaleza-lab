@@ -1,6 +1,6 @@
 import unittest
-from src.main.python.inventory import VaccineManager
-from src.main.python.validator import check_temp
+from inventory import VaccineManager
+from validator import check_temp
 
 class TestBioGuard(unittest.TestCase):
     def setUp(self):
